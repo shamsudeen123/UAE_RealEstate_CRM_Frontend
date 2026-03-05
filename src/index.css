@@ -131,13 +131,10 @@
 .dark ::-webkit-scrollbar-track { background: #1e293b; }
 .dark ::-webkit-scrollbar-thumb { background: #475569; border-radius: 9999px; }
 
-/* LoadingSpinner keyframes */
-@keyframes spin-steps {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-.spinner-bar {
-  animation: spin-steps 1s steps(12, end) infinite;
+/* LoadingSpinner — iOS stepped rotation */
+@keyframes ios-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
 /* Pipeline board */

@@ -1,22 +1,26 @@
 export default function LoadingSpinner({ size = 'md', fullScreen = false, text = '' }) {
-  const sizes = { sm: 20, md: 36, lg: 56 };
-  const s = sizes[size] || 36;
+  const sizes = { sm: 24, md: 40, lg: 60 };
+  const s = sizes[size] || 40;
 
   const spinner = (
     <div className="flex flex-col items-center gap-3">
-      <svg width={s} height={s} viewBox="0 0 40 40">
+      <svg
+        width={s}
+        height={s}
+        viewBox="0 0 40 40"
+        style={{ animation: 'ios-spin 1s steps(12, end) infinite' }}
+      >
         {Array.from({ length: 12 }).map((_, i) => (
           <rect
             key={i}
-            x="18" y="2" width="4" height="10" rx="2"
+            x="18" y="3" width="4" height="11" rx="2"
             fill="#c9a227"
-            opacity={1 - (i * 0.07)}
+            opacity={Math.max(0.12, (i + 1) / 12)}
             transform={`rotate(${i * 30}, 20, 20)`}
-            style={{ animation: `spin-steps 1s steps(12, end) ${-(i / 12)}s infinite` }}
           />
         ))}
       </svg>
-      {text && <p className="text-sm text-gray-500 dark:text-slate-400">{text}</p>}
+      {text && <p className="text-sm text-slate-500 dark:text-slate-400">{text}</p>}
     </div>
   );
 
