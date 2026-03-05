@@ -34,7 +34,7 @@ export default function LeadForm() {
   useEffect(() => {
     Promise.all([
       api.get('/clients', { params: { limit: 200 } }),
-      api.get('/properties', { params: { limit: 200, status: 'available' } }),
+      api.get('/properties', { params: { limit: 500 } }),
       // api.get('/auth/users'),
     ]).then(([c, p]) => {
       setClients(c.data.clients);

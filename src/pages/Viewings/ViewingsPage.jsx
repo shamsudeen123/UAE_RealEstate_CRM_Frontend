@@ -53,7 +53,7 @@ export default function ViewingsPage() {
 
   useEffect(() => {
     Promise.all([
-      api.get('/properties', { params: { limit: 200, status: 'available' } }),
+      api.get('/properties', { params: { limit: 500 } }),
       api.get('/clients', { params: { limit: 200 } }),
       // api.get('/auth/users'),
     ]).then(([p, c]) => {
