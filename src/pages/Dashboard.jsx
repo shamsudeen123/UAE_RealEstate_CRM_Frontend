@@ -50,7 +50,7 @@ export default function Dashboard() {
     load();
   }, []);
 
-  if (loading) return <LoadingSpinner fullScreen />;
+  if (loading) return <LoadingSpinner />;
 
   return (
     <div className="space-y-6">

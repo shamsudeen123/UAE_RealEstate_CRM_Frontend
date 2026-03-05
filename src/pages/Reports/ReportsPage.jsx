@@ -23,7 +23,7 @@ export default function ReportsPage() {
     }).catch(() => {}).finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <LoadingSpinner fullScreen />;
+  if (loading) return <LoadingSpinner />;
 
   const totalRevenue = trend.reduce((s, d) => s + (d.revenue || 0), 0);
   const totalCommission = trend.reduce((s, d) => s + (d.commission || 0), 0);
